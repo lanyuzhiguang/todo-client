@@ -17,54 +17,67 @@
 
 <script>
     export default {
+      props:{
+
+      },
+      data(){
+        return{
+            title:'',
+        }
+      },
+      methods:{
+        handleadd(){
+          this.$emit('addDoing',this.title)
+          this.title=''
+        }
+      }
 
       }
 </script>
 
 <style scoped>
-  .clearfix:after{
-    content:"";
-    display: block;
-    clear: both;
-  }
-  .content{
-    height: 52px;
-    background: #323232;
-    position: relative;
-  }
+.clearfix:after{
+  content:"";
+  display: block;
+  clear: both;
+}
+.content{
+  height: 52px;
+  background: #323232;
+  position: relative;
+}
+.container{
+   width: 600px;
+   height: 30px;
+   color: #fff;
+   background: #323232;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -15px;
+  margin-left: -300px;
+}
+.title{
+  float: left;
+  font-size: 20px;
 
-  .container{
-     width: 600px;
-     height: 30px;
-     color: #fff;
-     background: #323232;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-top: -15px;
-    margin-left: -300px;
-  }
-  .title{
-    float: left;
-    font-size: 20px;
-
-  }
-  .header-search{
-    float: right;
-    width: 450px;
-  }
-  .header-search input{
-    width: 300px;
-    height: 30px;
-    color: #ccc;
-    border-radius: 6px;
-  }
-  .header-search button{
-    color: #fff;
-    width: 100px;
-    height: 30px;
-    background: #ccc;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-  }
+}
+.header-search{
+  float: right;
+  width: 450px;
+}
+.header-search input{
+  width: 300px;
+  height: 30px;
+  color: #ccc;
+  border-radius: 6px;
+}
+.header-search button{
+  color: #fff;
+  width: 100px;
+  height: 30px;
+  background: #ccc;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
 </style>

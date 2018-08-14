@@ -4,34 +4,19 @@
         <div class="doing ">
           <div class="doing-top clearfix">
             <div class="doing-title fll">
-              <h2>正在进行</h2>
+              <slot name="listtitle"></slot>
             </div>
             <div class="doingall flr">
-              3
+              <slot name="nums"></slot>
             </div>
           </div>
           <div class="doing-content" >
-            <div class="doing-item" >
-              <input type="checkbox" class="doing-select fll" >
-              <span >吃饭</span>
-              <button class="doing-btn flr"  >删除</button>
-            </div>
-          </div>
-        </div>
-        <div class="finish ">
-          <div class="finish-top clearfix">
-            <div class="finish-title fll">
-              <h2>已经完成</h2>
-            </div>
-            <div class="finishall flr">
-              2
-            </div>
-          </div>
-          <div class="finish-content">
-            <div class="finish-item" >
-              <input type="checkbox" class="finish-select fll" >
-              <span >睡觉</span>
-              <button class="finish-btn flr" >删除</button>
+            <div class="doing-item" v-for="(doing,index) in doingarr" :key="index">
+              <input type="checkbox"
+                     class="doing-select fll"
+                     @change="handlechange(index)">
+              <span >{{doing.title}}</span>
+              <button class="doing-btn flr"  @click="handelremove(index)">删除</button>
             </div>
           </div>
         </div>
@@ -41,7 +26,25 @@
 
 <script>
     export default {
+      props:{
+        doingarr:Array,
 
+      },
+      data(){
+        return{
+          finisharr:[]
+        }
+      } ,
+     methods:{
+        handelremove(index){
+        this.doingarr.splice(index,1)
+        },
+       handlechange(index){
+
+
+
+       },
+     }
     }
 </script>
 
